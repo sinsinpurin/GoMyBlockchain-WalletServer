@@ -1,0 +1,41 @@
+swagger: "2.0"
+info:
+  description: "Wallet ServerのAPIです。"
+  version: "1.0.0"
+  title: "WalletServer API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "tusanch6@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+paths:
+  /wallet:
+    post:
+      summary: "walletの生成"
+      description: "生成したwalletの情報を返します"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+          schema:
+            type: "object"
+            properties:
+              PrivateKey:
+                type: "string"
+                example: "67b0b4b6641892cf78e6988ec67144b291313ae0519c261070503455d3f96791"
+              PublicKey:
+                type: "string"
+                example: "0252845e514bda761949d7cafc26b18394bfcd36f417edffe6acb81c251837fb14"
+              Address:
+                type: "string"
+                example: "1CVMN8qThbqLWmY9daa6ZgAnBQGC1Gza5U"
+  /transaction:
+    post:
+      summary: "transactionの送信"
+      description: "transactionをblockchainサーバーに送ります．"
+      responses:
+        200:
+          description: "成功時のレスポンス"
+        500:
+          description: "ネットワークエラー"
+          
